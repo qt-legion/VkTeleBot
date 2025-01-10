@@ -1,27 +1,15 @@
 pipeline {
     agent any
-    tools {
-        python3 'python3'
-    }
-    environment{
-
-    }
     stages {
         stage('python3 version'){
-
-            steps{
-                echo 'Preparing'
-
-                sh 'python3 --version'
-            }
+            echo 'Preparing'
+            sh 'python3 --version'
         }
 
         stage('tokens'){
-            steps{
-                echo 'Testing tokens'
-                rc = sh(script: "python3 test.py ${VkToken} ${TeleToken}", returnStatus: true)
-                echo ${rc}
-            }
+            echo 'Testing tokens'
+            rc = sh(script: "python3 test.py ${VkToken} ${TeleToken}", returnStatus: true)
+            echo "${rc}"
         }
     }
 }
