@@ -14,6 +14,9 @@ pipeline {
 
         stage('tokens'){
             steps {
+                environment { 
+                    VkToken = credentials('VkToken') 
+                }
                 echo 'Testing tokens'
                 echo "${VkToken}"
                 sh "python3 test.py ${VkToken} ${TeleToken}"
