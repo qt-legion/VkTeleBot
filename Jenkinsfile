@@ -9,10 +9,11 @@ pipeline {
         }
 
         stage('tokens'){
-            def retrncde = sh(script: "python3 test.py ${VkToken} ${TeleToken}", returnStatus: true)
             steps {
                 echo 'Testing tokens'
-                def rc = sh(script: "python3 test.py ${VkToken} ${TeleToken}", returnStatus: true)
+                script {
+                    def retrncde = sh(script: "python3 test.py ${VkToken} ${TeleToken}", returnStatus: true)
+                }
                 echo "${retrncde}"
             }
         }
