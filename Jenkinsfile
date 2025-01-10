@@ -15,6 +15,7 @@ pipeline {
         stage('tokens'){
             steps {
                 echo 'Testing tokens'
+                echo "${VkToken}"
                 sh "python3 test.py ${VkToken} ${TeleToken}"
             }
         }
