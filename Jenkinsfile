@@ -14,11 +14,11 @@ pipeline {
 
         stage('tokens'){
             environment { 
-                VkToken = credentials('VkToken') 
+                VkToken = credentials('VkToken')
+                TeleToken = credentials('TeleToken')
             }
             steps {
                 echo 'Testing tokens'
-                echo "${VkToken}"
                 sh "python3 test.py ${VkToken} ${TeleToken}"
             }
         }
