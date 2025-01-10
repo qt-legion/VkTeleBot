@@ -17,6 +17,7 @@ pipeline {
                 VkToken = credentials('VkToken')
                 TeleToken = credentials('TeleToken')
             }
+
             steps {
                 echo 'Testing tokens'
                 sh "python3 test.py ${VkToken} ${TeleToken}"
