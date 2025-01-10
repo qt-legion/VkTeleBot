@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo 'Testing tokens'
                 script {
-                    def retrncde = sh(script: "python3 test.py ${VkToken} ${TeleToken}", returnStatus: true)
+                    def retrncde = sh(script: "python3 test.py ${params.VkToken} ${params.TeleToken}", returnStatus: true)
                 }
                 echo "${retrncde}"
             }
