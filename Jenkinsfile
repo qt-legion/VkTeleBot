@@ -15,10 +15,7 @@ pipeline {
         stage('tokens'){
             steps {
                 echo 'Testing tokens'
-                script {
-                    def retrncde = sh(script: "python3 test.py ${params.VkToken} ${params.TeleToken}", returnStatus: true)
-                }
-                echo "${retrncde}"
+                sh "python3 test.py ${VkToken} ${TeleToken}"
             }
         }
     }
